@@ -30,3 +30,4 @@ const objectA = {
 };
 
 console.log (objectA);
+console.log (document);
