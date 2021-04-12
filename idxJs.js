@@ -15,19 +15,17 @@ let 재할당만 가능
 Array 선언 const a = []
 Object 선언 const a = {}
 */
+const h1Title = document.querySelector("#titleEx");
+const title = document.getElementById("introduction");
 
-var a   = 221;
-var a   = 177;
-const b = a - 5.1;
-let c   = 166,
-    c   = 'name';
-console.log(a, b, c);
+console.log(title);
+console.dir(h1Title);
+console.dir(title);
 
-const objectA = {
-    name : "Lee",
-    age : "23",
-    sex : "man"
-};
+title.innerHTML = "Hello From Javascript";
+h1Title.style.color = "red";
 
-console.log (objectA);
-console.log (document);
+
+
+document.title = "I Love You";
+
