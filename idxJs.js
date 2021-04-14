@@ -17,17 +17,18 @@ Object 선언 const a = {}
 */
 const h1Title = document.querySelector("#titleEx");
 const title = document.getElementById("introduction");
-
+const h2Title = document.querySelector(".colors");
+const age = prompt("Ask something : How old are you?");
+const BASE_COLORE = "#34495e";
+const OTHER_COLRE = "#7f8c8d";
+const CLICKED_CLASS = "clicked";
 
 console.log(title);
 console.dir(h1Title);
 console.dir(title);
 
-
 title.innerHTML = "Hello From Javascript";
 h1Title.style.color = "red";
-
-
 
 document.title = "I Love You";
 /**
@@ -47,14 +48,35 @@ function handleResize(event) {
 }
 
 function handleClick() {
+
+    const currentColor = h1Title.style.color;
+
     alert('successClick');
+
+    console.log(currentColor);
+
+    if (currentColor === BASE_COLORE) {
+        h1Title.style.color = OTHER_COLRE;
+    } else {
+        h1Title.style.color = BASE_COLORE;
+    }
+
+    
+}
+
+function handleOnLine() {
+
+    console.log("onLinesuccess");
+
 }
 
 console.dir(window.addEventListener);
 
-window.addEventListener("resize", handleResize);
+/** Web:Javscript_DOM_Event_MDN
+ * https://developer.mozilla.org/ko/docs/Web/Events
+ */
 
-h1Title.addEventListener("click", handleClick);
+
 /**
  * block : 자바스크립트 표현법으로 console.log, alert, 등 아무거나
  * 적용 해주어도 된다는 뜻입니다.
@@ -71,10 +93,33 @@ if (10 > 5 && "LSH_console" === "LSH_console") {
 } else {
     console.log("No");
 }
-
-const age = prompt("Ask something : How old are you?");
-
 console.log(age);
+
+function handleH2Click() {
+
+    h2Title.classList.toggle(CLICKED_CLASS);
+
+    /*
+    const currentClass = h2Title.className;
+
+    if(h2Title.classList.contains(CLICKED_CLASS) === false) {
+        h2Title.classList.add(CLICKED_CLASS);
+        console.log("success");
+    } else {
+        h2Title.classList.remove(CLICKED_CLASS);
+    }
+    */
+
+}
+
+function init() {
+    window.addEventListener("resize", handleResize);
+    h1Title.addEventListener("mouseenter", handleClick);
+    window.addEventListener("Navigator.onLine", handleOnLine);
+    h2Title.addEventListener("click", handleH2Click);
+}
+
+init();
 
 /* 제이쿼리 library가 없어 선택자를 사용할수 없습니다.
 $(function() {
